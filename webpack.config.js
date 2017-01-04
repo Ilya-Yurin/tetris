@@ -1,10 +1,11 @@
 const path = require('path');
 const webpack = require('webpack');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
 
   entry: {
-    tetris: './src/app.js'
+    app: './src/app.js'
   },
 
   devtool: 'source-map',
@@ -29,10 +30,17 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel',
       query: {
-        presets: ['es2015']
+        presets: ['es2015', 'stage-0']
       }
+    }, {
+      test: /\.css$/,
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
     }]
   },
+
+  plugins: [
+    new ExtractTextPlugin('app.css')
+  ],
 
   watch: true,
   watchOptions: {
