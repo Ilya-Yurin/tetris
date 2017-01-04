@@ -26,12 +26,24 @@
   line-height: 0;
 }
 
-.tetris__cell-filled {
+.tetris__cell-filled.tetris__cell-colored-1 {
   background: #002dff;
 }
 
+.tetris__cell-filled.tetris__cell-colored-2 {
+  background: #ff3b0f;
+}
+
+.tetris__cell-filled.tetris__cell-colored-3 {
+  background: #ff630d;
+}
+
+.tetris__cell-filled.tetris__cell-colored-4 {
+  background: #00460d;
+}
+
 .tetris__cell-highlighted {
-  filter: brightness(300%);
+  background: #79ffe2;
 }
 
 .tetris__score {

@@ -38,7 +38,8 @@ class Tetris {
       cell:{
         filled: 'tetris__cell-filled',
         common: 'tetris__cell',
-        highlighted: 'tetris__cell-highlighted'
+        highlighted: 'tetris__cell-highlighted',
+        colored: 'tetris__cell-colored'
       },
       tetris: {
         common: 'tetris',

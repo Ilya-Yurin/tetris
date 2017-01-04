@@ -137,6 +137,7 @@ class Figure {
   }
 
   constructor(tetris) {
+    this.colorIndex = Math.floor(Math.random() * 4) + 1;
     this.tetris = tetris;
     let form = Tetris.cloneDeep(Figure.forms[Math.floor(Math.random() * Figure.forms.length)]);
     this.desc =  form.pop();
@@ -288,7 +289,7 @@ class Figure {
       let coord = this.coords[i];
       if(coord.y >= 0) {
         this.tetris.rows[coord.y].cells[coord.x].filled = true;
-        // this.tetris.dirtyCells[`${this.tetris.rows[coord.y].index}-${this.tetris.rows[coord.y].cells[coord.x].index}`] = this.tetris.rows[coord.y].cells[coord.x];
+        this.tetris.rows[coord.y].cells[coord.x].colorIndex = this.colorIndex;
       }
     }
   }

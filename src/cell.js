@@ -6,11 +6,13 @@ class Cell {
     this.row.DOM.appendChild(this.DOM);
     this.DOM.className = this.tetris.params.classes.cell.common;
     this.filled = false;
+    this.colored = false;
   }
 
   process(rowIndex, cellIndex) {
     let needleFilled = false;
     let needleHighlighted = false;
+    let colorIndex;
     for (let i = 0, l = this.tetris.figure.coords.length; i < l; i++) {
       const coord = this.tetris.figure.coords[i];
 
@@ -23,8 +25,21 @@ class Cell {
         && coord.y === rowIndex
       ) {
         this.DOM.classList.add(this.tetris.params.classes.cell.filled);
+        colorIndex = this.tetris.figure.colorIndex;
         needleFilled = true;
       }
+    }
+
+    if (this.colorIndex !== undefined) {
+      colorIndex = this.colorIndex;
+    }
+
+    if (colorIndex) {
+      this.DOM.classList.add(`${this.tetris.params.classes.cell.colored}-${colorIndex}`);
+      this.colored = true;
+    } else if (this.colored) {
+      this.colored = false;
+      this.DOM.className = this.DOM.className.replace(new RegExp(`(${this.tetris.params.classes.cell.colored}-\\d)*`, 'ig'), '');
     }
 
     if (!needleFilled && !this.filled) {
