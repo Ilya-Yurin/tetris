@@ -2,6 +2,17 @@
   "extends": "airbnb/base",
   "rules": {
     "comma-dangle": 0,
-    "max-len": ["error", 160]
+    "max-len": [
+      "error",
+      160
+    ],
+    "no-plusplus": 0,
+    "no-param-reassign": 0,
+    "no-continue": 0
+  },
+  "parser": "babel-eslint",
+  "globals": {
+    "document": true,
+    "window": true
   }
 }

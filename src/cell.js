@@ -13,20 +13,23 @@ class Cell {
     let needleFilled = false;
     let needleHighlighted = false;
     let colorIndex;
-    for (let i = 0, l = this.tetris.figure.coords.length; i < l; i++) {
-      const coord = this.tetris.figure.coords[i];
 
-      if (coord.x === cellIndex) {
-        needleHighlighted = true;
-      }
+    if (this.tetris.figure) {
+      for (let i = 0, l = this.tetris.figure.coords.length; i < l; i++) {
+        const coord = this.tetris.figure.coords[i];
 
-      if (
-        coord.x === cellIndex
-        && coord.y === rowIndex
-      ) {
-        this.DOM.classList.add(this.tetris.params.classes.cell.filled);
-        colorIndex = this.tetris.figure.colorIndex;
-        needleFilled = true;
+        if (coord.x === cellIndex) {
+          needleHighlighted = true;
+        }
+
+        if (
+          coord.x === cellIndex
+          && coord.y === rowIndex
+        ) {
+          this.DOM.classList.add(this.tetris.params.classes.cell.filled);
+          colorIndex = this.tetris.figure.colorIndex;
+          needleFilled = true;
+        }
       }
     }
 
@@ -55,8 +58,8 @@ class Cell {
     } else {
       this.DOM.classList.remove(this.tetris.params.classes.cell.highlighted);
     }
-
   }
+
 }
 
 export default Cell;

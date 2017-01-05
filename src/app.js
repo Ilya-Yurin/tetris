@@ -7,7 +7,7 @@ tetrises.push(
   new Tetris({
     rows: 30,
     cells: 15,
-    difficult: 'hell',
+    tickDelay: 300,
     control: {
       moveLeft: 37,
       moveRight: 39,
@@ -18,7 +18,7 @@ tetrises.push(
   new Tetris({
     rows: 30,
     cells: 15,
-    difficult: 'hell',
+    tickDelay: 300,
     control: {
       moveLeft: 65,
       moveRight: 68,
