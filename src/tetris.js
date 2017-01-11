@@ -8,9 +8,9 @@ class Tetris {
     rows: 25,
     cells: 11,
     tickDelay: 800,
-    movingDelay: 100,
+    movingDelay: 180,
     rotatingDelay: 180,
-    boostingDelay: 20,
+    boostingDelay: 30,
     figuresInQueue: 5,
     control: {
       moveLeft: 37,
@@ -446,7 +446,15 @@ class Tetris {
       this.checkFilledLines();
 
       // фигуре некуда двигаться дальше начала, игра закончилась
-      if (this.figure.coords[this.figure.coords.length - 1].y === 0) {
+      let canMove = true;
+      for (let i = 0, l = this.figure.coords.length; i < l; i++) {
+        const coord = this.figure.coords[i];
+        if (coord.y === 0 && this.rows[coord.y].cells[coord.x].filled) {
+          canMove = false;
+          break;
+        }
+      }
+      if (!canMove) {
         this.gameOver = true;
         Tetris.removeFromTickCbs(this);
         return;

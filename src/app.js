@@ -28,6 +28,7 @@ tetrises.push(
   })
 );
 
+// автоматически стартуем все тетрисы в одно время
 setTimeout(() => {
   let i = tetrises.length;
   while (i--) {
