@@ -92,7 +92,117 @@ class Tetris {
       container: {
         common: 'tetris__container'
       }
-    }
+    },
+    // карта фигур
+    /**
+     * дополнительные примеры форм:
+     *   [
+     *     [1, 0, 1],
+     *     [1, 1, 1],
+     *     {
+     *      rotatable: true,
+     *      base: [1, 1]
+     *     }
+     *   ],
+     *   [
+     *     [1],
+     *     {
+     *       rotatable: false
+     *     }
+     *   ],
+     *   [
+     *     [1, 1, 0],
+     *     [1, 1, 1],
+     *     [0, 1, 0],
+     *     {
+     *       rotatable: false
+     *     }
+     *   ],
+     *   [
+     *     [1, 1],
+     *     {
+     *       rotatable: true,
+     *       base: [0, 0]
+     *     }
+     *   ]
+     */
+    figuresForms: [
+      [
+        [1, 1],
+        [0, 1, 1],
+        {
+          rotatable: true,
+          base: [0, 1]
+        }
+      ],
+      [
+        [1],
+        [1],
+        [1],
+        [1],
+        {
+          rotatable: true,
+          base: [1, 0]
+        }
+      ],
+      [
+        [0, 1, 0],
+        [1, 1, 1],
+        {
+          rotatable: true,
+          base: [1, 1]
+        }
+      ],
+      [
+        [0, 1, 1],
+        [1, 1],
+        {
+          rotatable: true,
+          base: [0, 1]
+        }
+      ],
+      [
+        [1, 1],
+        [1],
+        [1],
+        {
+          rotatable: true,
+          base: [0, 0]
+        }
+      ],
+      [
+        [1, 1],
+        [1, 1],
+        {
+          rotatable: false
+        }
+      ],
+      [
+        [1, 1],
+        [0, 1],
+        [0, 1],
+        {
+          rotatable: true,
+          base: [0, 1]
+        }
+      ],
+      [
+        [1],
+        [1, 1],
+        {
+          rotatable: true,
+          base: [1, 0]
+        }
+      ],
+      [
+        [0, 1],
+        [1, 1],
+        {
+          rotatable: true,
+          base: [1, 1]
+        }
+      ]
+    ]
   };
   static cloneDeep(objectToBeCloned) {
     if (!(objectToBeCloned instanceof Object)) {

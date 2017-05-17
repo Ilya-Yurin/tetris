@@ -1,113 +1,8 @@
 import Tetris from './tetris';
 
 class Figure {
-  static forms = [
-    [
-      [1, 1],
-      [0, 1, 1],
-      {
-        rotatable: true,
-        base: [0, 1]
-      }
-    ],
-    [
-      [1],
-      [1],
-      [1],
-      [1],
-      {
-        rotatable: true,
-        base: [1, 0]
-      }
-    ],
-    [
-      [1, 0, 1],
-      [1, 1, 1],
-      {
-        rotatable: true,
-        base: [1, 1]
-      }
-    ],
-    [
-      [0, 1, 0],
-      [1, 1, 1],
-      {
-        rotatable: true,
-        base: [1, 1]
-      }
-    ],
-    [
-      [0, 1, 1],
-      [1, 1],
-      {
-        rotatable: true,
-        base: [0, 1]
-      }
-    ],
-    [
-      [1, 1],
-      [1],
-      [1],
-      {
-        rotatable: true,
-        base: [0, 0]
-      }
-    ],
-    [
-      [1, 1],
-      [1, 1],
-      {
-        rotatable: false
-      }
-    ],
-    [
-      [1, 1],
-      [0, 1],
-      [0, 1],
-      {
-        rotatable: true,
-        base: [0, 1]
-      }
-    ],
-    [
-      [1],
-      [1, 1],
-      {
-        rotatable: true,
-        base: [1, 0]
-      }
-    ],
-    [
-      [0, 1],
-      [1, 1],
-      {
-        rotatable: true,
-        base: [1, 1]
-      }
-    ],
-    [
-      [1],
-      {
-        rotatable: false
-      }
-    ],
-    [
-      [0, 1, 0],
-      [1, 1, 1],
-      [0, 1, 0],
-      {
-        rotatable: false
-      }
-    ],
-    [
-      [1, 1],
-      {
-        rotatable: true,
-        base: [0, 0]
-      }
-    ]
-  ];
 
+  // вращает координаты по часовой стрелке
   static mathRotate(baseCoord, rotateCoords) {
     for (let i = 0, l = rotateCoords.length; i < l; i++) {
       const coord = rotateCoords[i];
@@ -126,6 +21,7 @@ class Figure {
     }
   }
 
+  // сдвигает фигуру в нужное направление
   static mathMove(direction, coords) {
     switch (direction) {
       case 'left':
@@ -156,7 +52,7 @@ class Figure {
   constructor(tetris) {
     this.colorIndex = Math.floor(Math.random() * 4) + 1;
     this.tetris = tetris;
-    this.form = Tetris.cloneDeep(Figure.forms[Math.floor(Math.random() * Figure.forms.length)]);
+    this.form = Tetris.cloneDeep(tetris.params.figuresForms[Math.floor(Math.random() * tetris.params.figuresForms.length)]);
     this.desc = this.form.pop();
 
     if (this.desc.rotatable) {

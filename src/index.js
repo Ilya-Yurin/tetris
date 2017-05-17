@@ -1,5 +1,4 @@
 import Tetris from './tetris';
-import './tetris.css';
 
 const tetrises = [];
 

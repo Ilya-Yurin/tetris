@@ -5,7 +5,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = {
 
   entry: {
-    app: './src/app.js'
+    index: './src/index.js'
   },
 
   devtool: 'source-map',
@@ -39,7 +39,7 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('app.css')
+    new ExtractTextPlugin('index.css')
   ],
 
   watch: true,
